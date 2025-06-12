@@ -4,7 +4,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import Colors from '../constant/Colors';
 import { Picker } from '@react-native-picker/picker';
 import { Type as TypeList, WhenToTake } from './../constant/Options';
-import { formatTime, formatDateForText } from '../service/ConvertDateTime';
+import { formatTime, formatDateForText, getDatesRange } from '../service/ConvertDateTime';
 import { db } from '../config/FirebaseConfig';
 import { useRouter } from 'expo-router';
 import { getLocalStorage } from '../service/Storage';
@@ -42,6 +42,11 @@ if (!(formData?.name && formData?.type && formData?.dose && formData?.startDate 
   return;
 }
 
+const dates = getDatesRange(formData?.startDate,formData?.endDate);
+console.log((dates));
+
+
+
 setLoading(true);
 
 try {
@@ -49,6 +54,7 @@ try {
     ...formData,
     userEmail: user?.email,
     docId: docId,
+    dates:dates
   });
 
   console.log('Data Saved');

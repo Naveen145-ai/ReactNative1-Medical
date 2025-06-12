@@ -17,7 +17,9 @@ export default function HomeScreen() {
     }}>
      <Header/>
 
-     <EmptyState/>
+   
+
+     <MedicationlList/>
     </View>
   );
 }
