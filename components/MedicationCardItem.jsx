@@ -1,10 +1,26 @@
 import { View, Text,Image,StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Background } from '@react-navigation/elements'
 import Colors from '../constant/Colors'
 import Ionicons from '@expo/vector-icons/Ionicons'
 
-export default function MedicationCardItem({medicine}) {
+export default function MedicationCardItem({medicine,selectedDate}) {
+
+  console.log(medicine);
+  const [status,setStatus] = useState();
+
+  useEffect(()=>{
+    CheckStatus();
+  },[medicine])
+
+  const CheckStatus=()=>{
+    const data=medicine?.action?.find((item)=>item.date==selectedDate);
+    console.log(data);
+    setStatus(data);
+    
+  }
+
+  
   return (
     <View style={styles.container}>
         <View style={styles.subContainer}>
@@ -26,10 +42,18 @@ export default function MedicationCardItem({medicine}) {
         <Text style={{color:'white'}}>{medicine?.dose} {medicine?.type.name} </Text>
     </View>
 
-    <View>
+    <View style={styles.reminderContainer}>
+
         <Ionicons name='time-ouline' size={24} color='black' />
         <Text style={{fontWeight:'bold',fontSize:18}}>{medicine?.reminder}</Text>
     </View>
+
+    {status?.date && <View style={styles.statusContainer}>
+      {status?.action?.status=='Taken'?<Ionicons name='checkmark-circle' 
+      size={24} color={Colors.GREEN} />:status?.action?.status=='Missed'&&
+      <Ionicons name="checkmark-circle"
+      size={24} color='red'/>}
+    </View>}
     </View>
   )
 }
@@ -59,7 +83,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center'
     },
-    reminder:{
+    reminderContainer:{
         padding:13,
         backgroundColor:'white',
         borderRadius:15,
@@ -67,5 +91,10 @@ const styles = StyleSheet.create({
         borderWidth:1,
          borderColor:Colors.LIGHT_GRAY_BORDER
 
+    },
+    statusContainer:{
+      position:'absolute',
+      top:5
     }
+
 })

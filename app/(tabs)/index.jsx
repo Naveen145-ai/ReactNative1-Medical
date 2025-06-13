@@ -1,14 +1,19 @@
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import React from 'react';
 //import { Button } from 'react-native';
 //import { signOut } from '@firebase/auth';
 //import { auth } from '../../config/FirebaseConfig';
 //import { RemoveLocalStorage } from '../../service/Storage';
 import Header from '../../components/Header';
-import EmptyState from '../../components/EmptyState';
+import MedicationList from '../../components/MedicationList';
 
 export default function HomeScreen() {
   return (
+    <FlatList 
+    
+    data={[]}
+   
+    ListHeaderComponent={
     <View style={{
       padding:25,
       backgroundColor:'white',
@@ -19,7 +24,9 @@ export default function HomeScreen() {
 
    
 
-     <MedicationlList/>
+     <MedicationList/>
     </View>
+    }
+     />
   );
 }

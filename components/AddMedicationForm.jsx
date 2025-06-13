@@ -211,7 +211,8 @@ try {
       onPress={()=>SaveMedication()}
       >
 
-        {loading?<ActivityIndicator size={'large'} color={white}/>:   //indicator 
+        {loading?<ActivityIndicator size={'large'} color="white" />:
+   //indicator 
 
         <Text style={styles.buttonText}>Add New Medication</Text>}
       </TouchableOpacity>
