@@ -18,16 +18,15 @@ export const Type = [
   {
     name: 'Injection',
     icon: 'https://cdn-icons-png.flaticon.com/128/3217/3217557.png',
-  }
+  },
 ];
 
 export const WhenToTake = [
-  
   'Morning',
   'Before Lunch',
   'Afternoon',
   'Evening',
   'Before Dinner',
   'After Dinner',
-  'Before Sleeping'
+  'Before Sleeping',
 ];

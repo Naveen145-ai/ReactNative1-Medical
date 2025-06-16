@@ -139,15 +139,17 @@ try {
       <View style={styles.inputGroup}>
         <Text>When to take</Text>
         <Ionicons name="time-outline" size={24} color="black" />
-        <Picker
-          selectedValue={formData?.when}
-          onValueChange={(itemValue) => onHandleInputChange('when', itemValue)}
-          style={{ width: '90%' }}
-        >
-          {WhenToTake.map((item, index) => (
-            <Picker.Item key={index} label={item} value={item} />
-          ))}
-        </Picker>
+<Picker
+  selectedValue={formData?.when}
+  onValueChange={(itemValue) => onHandleInputChange('when', itemValue)}
+  style={{ width: '90%' }}
+>
+  <Picker.Item label="When to take" value="" enabled={false} />
+  {WhenToTake.map((item, index) => (
+    <Picker.Item key={index} label={item} value={item} />
+  ))}
+</Picker>
+
       </View>
 
       {/* Start and End Date Input for Web */}

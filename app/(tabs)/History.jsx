@@ -1,14 +1,16 @@
 import { Background } from '@react-navigation/elements';
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import React, {  useState } from 'react';
+
 import { GetDateRangeToDisplay } from '../../service/ConvertDateTime';
 import moment from 'moment';
-import { getLocalStorage } from '../service/Storage';
+import { getLocalStorage } from '../../service/Storage';
+
 import { collection, query, where, getDocs } from 'firebase/firestore'; // assumed missing
-import { db } from '../config/FirebaseConfig'; 
-import MedicationCardItem from './MedicationCardItem'; // assuming you're using this
-import EmptyState from './EmptyState'; 
+import { db } from '../../config/FirebaseConfig'; 
+import MedicationCardItem from '../../components/MedicationCardItem';
+ // assuming you're using this
+import Colors from '../../constant/Colors';
 
 export default function History() {
 

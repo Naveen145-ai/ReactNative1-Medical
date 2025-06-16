@@ -58,7 +58,7 @@ createUserWithEmailAndPassword(auth, email, password)
     <View style={{
         padding:25
     }}>
-            <text style={styles.textHeader}>Create New Account</text>
+            <Text style={styles.textHeader}>Create New Account</Text>
              
         <View style={{
             marginTop:25
@@ -149,4 +149,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default signUp
+export default signUp;

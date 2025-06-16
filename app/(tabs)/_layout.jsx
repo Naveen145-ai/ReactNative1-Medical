@@ -56,20 +56,20 @@ useEffect(()=>{
         }}
       />
       <Tabs.Screen
-        name="add"
+        name="History"
         options={{
           tabBarLabel: 'Add New',
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="plus-square" size={size} color={color} />
+            <FontAwesome name="history" size={size} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="Profile"
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="user" size={size} color={color} />
+            <FontAwesome name="profile" size={size} color={color} />
           ),
         }}
       />

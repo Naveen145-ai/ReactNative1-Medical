@@ -61,25 +61,26 @@ export default function MedicationActionModel() {
                 }}>Missed</Text>
             </TouchableOpacity>
 
-             <TouchableOpacity style={styles.successButton}
-              onPress={()=>UpdateActionStatus('Taken')}
-             >
-                <Ionicons name="checkmark-outline" size={24} color="white" />
-                <Text style={{
-                    fontSize:20,
-                    color:'white'
-                }}>Taken</Text>
-            </TouchableOpacity>
+             <TouchableOpacity
+  onPress={() => router.back()}
+  style={{
+    position: 'absolute',
+    bottom: 25
+  }}
+>
+  <Ionicons name='close-circle' size={44} color={Colors.GRAY} />
+</TouchableOpacity>
+
         </View>
-
-        <TouchableOpacity style={{
-            onPress={()=>router.back()}
-            position:'absolute',
-            bottom:25
-        }}>
-            <Ionicons name='close-circle' size={44} color={Colors.GRAY} />
-        </TouchableOpacity>
-
+<TouchableOpacity
+  onPress={() => router.back()}
+  style={{
+    position: 'absolute',
+    bottom: 25
+  }}
+>
+  <Ionicons name='close-circle' size={44} color={Colors.GRAY} />
+</TouchableOpacity>
 
       
     </View>

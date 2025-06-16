@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import Colors from '../constants/Colors';
-import { getLocalStorage } from '../utils/LocalStorage';
 import { Ionicons } from '@expo/vector-icons';
+import { getLocalStorage } from '../../service/Storage';
 
 export default function Profile() {
   const router = useRouter();
@@ -32,7 +31,7 @@ export default function Profile() {
       id: 4,
       name: 'Logout',
       icon: 'log-out',
-      path: '/login', // Assuming you navigate to login page after logout
+      path: '/login', // Navigate to login page after logout
     },
   ];
 
@@ -74,7 +73,7 @@ export default function Profile() {
         style={{
           fontFamily: 'outfit',
           fontSize: 16,
-          color: Colors.GRAY,
+          color: '#666', // Replacing Colors.GRAY
         }}
       >
         {user?.email || 'account@tubeguruji.com'}
@@ -88,7 +87,6 @@ export default function Profile() {
             onPress={() => onPressMenu(item)}
             style={{
               marginVertical: 10,
-              display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               gap: 10,
@@ -97,7 +95,7 @@ export default function Profile() {
               borderRadius: 10,
             }}
           >
-            <Ionicons name={item.icon} size={24} color={Colors.PRIMARY} />
+            <Ionicons name={item.icon} size={24} color="#007AFF" /> {/* Replacing Colors.PRIMARY */}
             <Text
               style={{
                 fontFamily: 'outfit',
@@ -109,6 +107,6 @@ export default function Profile() {
           </TouchableOpacity>
         )}
       />
-    </View>
-  );
+    </View>
+  );
 }
